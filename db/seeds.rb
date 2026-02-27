@@ -15,3 +15,8 @@
     password: "password"
   )
 end
+
+categories = ["機器", "文具", "本", "運搬", "裁断", "その他"]
+categories.each do |name|
+  Category.find_or_create_by!(name: name)
+end
