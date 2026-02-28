@@ -1,0 +1,14 @@
+<h1>備品登録</h1>
+<%= form_with model: @item, local: true do |f| %>
+    <h4>備品名</h4>
+    <%= f.text_field :name %>
+    <h4>備品の説明</h4>
+    <%= f.text_area :description %>
+    <h4>カテゴリ</h4>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    <div class="form-group">
+        <h4>状態</h4>
+        <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {}, { class: "custom-select w-25 mb-3" } %>
+    </div>
+    <%= f.submit '登録', class: 'btn btn-success' %>
+<% end %>

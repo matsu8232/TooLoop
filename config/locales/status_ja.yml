@@ -1,0 +1,6 @@
+ja:
+  enums:
+    item:
+      status:
+        available: '貸出可能'
+        maintenance: 'メンテナンス中'
