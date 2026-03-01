@@ -2,4 +2,10 @@
 <% @items.each do |item| %>
     <p>備品名</p>
     <span><%= link_to item.name, item_path(item) %></span>
+    <p>画像</p>
+    <% if item.image.attached? %>
+        <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
+    <% else %>
+        <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
 <% end %>
