@@ -1,0 +1,11 @@
+<h1>備品詳細</h1>
+<h2>備品名</h2>
+<p><%= @item.name %></p>
+<h2>備品の説明</h2>
+<p><%= @item.description %></p>
+<h2>カテゴリ</h2>
+<p><%= @item.category.name %></p>
+<h2>状態</h2>
+<p><%= @item.status %></p>
+<%= link_to '編集する', edit_item_path(@item.id) %><br>
+<%= link_to '備品一覧へ', items_path %>
