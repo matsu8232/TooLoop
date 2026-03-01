@@ -8,4 +8,5 @@
 <h2>状態</h2>
 <p><%= @item.status %></p>
 <%= link_to '編集する', edit_item_path(@item.id) %><br>
+<%= link_to '削除する', item_path(@item.id), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %><br>
 <%= link_to '備品一覧へ', items_path %>
