@@ -1,11 +1,17 @@
-<h1>備品一覧</h1>
-<% @items.each do |item| %>
-    <p>備品名</p>
-    <span><%= link_to item.name, item_path(item) %></span>
-    <p>画像</p>
-    <% if item.image.attached? %>
-        <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
-    <% else %>
-        <%= image_tag 'no_image', size: "200x200" %>
-    <% end %>
-<% end %>
+<div class="cover-index">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="row mt-5">
+            <h1 class="font-weight-normal">備品一覧</h1>
+        </div>
+        <% @items.each do |item| %>
+            <p>備品名</p>
+            <span><%= link_to item.name, item_path(item) %></span><br>
+            <% if item.image.attached? %>
+                <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
+            <% else %>
+                <%= image_tag 'no_image', size: "300x200" %>
+            <% end %>
+        <% end %>
+    </div>
+    <%= paginate @items %>
+</div>
