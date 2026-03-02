@@ -4,9 +4,12 @@ class ItemsController < ApplicationController
   end
 
   def create
-    item = Item.new(item_params)
-    item.save
-    redirect_to item_path(item.id)
+    @item = current_user.items.build(item_params)
+    if @item.save
+      redirect_to item_path(@item), notice: "備品を登録しました。"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def index
