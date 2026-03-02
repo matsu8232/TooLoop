@@ -3,15 +3,21 @@
         <div class="row mt-5">
             <h1 class="font-weight-normal">備品一覧</h1>
         </div>
-        <% @items.each do |item| %>
-            <p>備品名</p>
-            <span><%= link_to item.name, item_path(item) %></span><br>
-            <% if item.image.attached? %>
-                <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
-            <% else %>
-                <%= image_tag 'no_image', size: "300x200" %>
+        <div class="row mt-5 index-left w-100">
+            <% @items.each do |item| %>
+                <div class="one-post col-sm-4 mb-3">
+                    <%= link_to item_path(item) do %>
+                        <p class="caption">ユーザー名</p>
+                        <% if item.image.attached? %>
+                            <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
+                        <% else %>
+                            <%= image_tag 'no_image', size: "300x200" %>
+                        <% end %>
+                        <p class="caption"><%= item.name %></p>
+                    <% end %>
+                </div>
             <% end %>
-        <% end %>
+        </div>
+        <%= paginate @items %>
     </div>
-    <%= paginate @items %>
 </div>
