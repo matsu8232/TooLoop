@@ -17,6 +17,7 @@
       <div><%= link_to "備品検索", items_path, class: "text-white nav-link" %></div>
       <div><%= link_to "備品登録", new_item_path, class: "text-white nav-link" %></div>
       <div>予約確認</div>
+      <div><%= link_to "マイページ", user_signed_in? ? user_path(current_user) : new_user_session_path, class: "text-white nav-link" %></div>
       <% if user_signed_in? %>
         <div><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-white nav-link" %></div>
       <% else %>

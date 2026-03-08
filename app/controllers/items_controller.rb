@@ -4,12 +4,10 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = current_user.items.build(item_params)
-    if @item.save
-      redirect_to item_path(@item), notice: "備品を登録しました。"
-    else
-      render :new, status: :unprocessable_entity
-    end
+    item = Item.new(item_params)
+    item.user_id = current_user.id
+    item.save
+    redirect_to item_path(item.id)
   end
 
   def index
@@ -38,6 +36,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :category_id, :status, :image)
+    params.require(:item).permit(:user_id, :name, :description, :category_id, :status, :image)
   end
 end

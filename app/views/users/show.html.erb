@@ -1,0 +1,24 @@
+<div class="cover-user-show">
+    <div class="container d-flex flex-column align-items-center">
+        <div class="row mt-5">
+            <% if user_signed_in? && @user == current_user %>
+                <h1 class="font-weight-normal">マイページ</h1>
+            <% else %>
+                <h1 class="font-weight-normal"><%= @user.name %>さんのページ</h1>
+            <% end %>
+        </div>
+        <div class="row mt-5 index-left w-100">
+            <% @items.each do |item| %>
+                <div class="one-post col-sm-3 mb-3">
+                    <%= link_to item_path(item) do %>
+                        <% if item.image.attached? %>
+                            <%= image_tag item.image.variant(resize_to_limit: [200, 133]) %>
+                        <% end %>
+                        <p class="caption mb-0"><%= item.name %></p>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+        <%= paginate @items %>
+    </div>
+</div>
