@@ -7,12 +7,27 @@
                 <h1 class="font-weight-normal"><%= @user.name %>さんのページ</h1>
             <% end %>
         </div>
+        <% if user_signed_in? && @user == current_user %>
+            <p class="d-flex align-self-end">
+                <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-success" %>
+            </p>
+        <% end %>
+        <div class="d-flex w-100">
+            <% if @user.avatar.attached? %>
+                <%= image_tag @user.avatar, size: '100x100', class: "mb-3 avatar" %>
+            <% else %>
+                <%= image_tag "no_avatar.svg", size: '100x100', class: "mb-3 avatar" %>
+            <% end %>
+            <h4 class="ml-3 mb-3 card w-100 info"><%= @user.info %></h4>
+        </div>
         <div class="row mt-5 index-left w-100">
             <% @items.each do |item| %>
                 <div class="one-post col-sm-3 mb-3">
                     <%= link_to item_path(item) do %>
                         <% if item.image.attached? %>
                             <%= image_tag item.image.variant(resize_to_limit: [200, 133]) %>
+                        <% else %>
+                            <%= image_tag 'no_image', size: "200x133" %>
                         <% end %>
                         <p class="caption mb-0"><%= item.name %></p>
                     <% end %>
