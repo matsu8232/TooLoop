@@ -12,9 +12,9 @@
                 <div class="form-group">
                     <label class="form-label">プロフィール画像</label><br>
                     <% if @user.avatar.attached? %>
-                        <%= image_tag @user.avatar, size: '100x100', class: "mb-3 profile-img" %><br>
+                        <%= image_tag @user.avatar, size: '100x100', class: "mb-3 avatar" %><br>
                     <% else %>
-                        <%= image_tag "no_avatar.svg", size: '100x100', class: "mb-3 profile-img" %><br>
+                        <%= image_tag "no_avatar.svg", size: '100x100', class: "mb-3 avatar" %><br>
                     <% end %>
                     <%= f.file_field :avatar %>
                 </div>

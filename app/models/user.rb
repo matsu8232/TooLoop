@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :rooms, through: :entries
 
   has_many :rented_items, through: :reservations, source: :item
+
+  validates :name, presence: true
 end
