@@ -5,8 +5,8 @@
         </div>
         <div class="row mt-3 mb-3 align-self-end">
             <%= form_with method: :get, local: true do |f| %>
-                <%= f.text_field :search %>
-                <%= f.submit '検索する', name: nil %>
+                <%= f.text_field :search, placeholder: "キーワードを入力" %>
+                <%= f.submit '検索', name: nil %>
             <% end %>
         </div>
         <div class="row mt-5 index-left w-100">
@@ -21,7 +21,7 @@
                         <% end %>
                         <p class="caption"><%= item.name %></p>
                     <% end %>
-                    <%= I18n.t("enums.item.status.#{item.status}") %>
+                    <%= t("enums.item.status.#{item.status}") %>
                 </div>
             <% end %>
         </div>

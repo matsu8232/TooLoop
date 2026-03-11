@@ -7,7 +7,7 @@ ja:
             name:
               blank: "備品名を入力してください"
             description:
-              blank: "説明文を入力してください"
+              blank: "備品の説明を入力してください"
         chat:
           attributes:
             message:
