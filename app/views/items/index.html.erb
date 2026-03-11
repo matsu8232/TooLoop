@@ -21,6 +21,7 @@
                         <% end %>
                         <p class="caption"><%= item.name %></p>
                     <% end %>
+                    <%= I18n.t("enums.item.status.#{item.status}") %>
                 </div>
             <% end %>
         </div>
