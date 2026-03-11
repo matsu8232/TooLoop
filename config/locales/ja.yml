@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    errors:
+      models:
+        item:
+          attributes:
+            name:
+              blank: "備品名を入力してください"
+            description:
+              blank: "説明文を入力してください"
+        chat:
+          attributes:
+            message:
+              blank: "メッセージを入力してください"
