@@ -3,12 +3,26 @@
         <div class="row mt-5">
             <h1 class="font-weight-normal">備品一覧</h1>
         </div>
-        <div class="row mt-3 mb-3 align-self-end">
-            <%= form_with method: :get, local: true do |f| %>
-                <%= f.text_field :search, placeholder: "キーワードを入力" %>
-                <%= f.submit '検索', name: nil %>
+        <div class="row mb-3 align-self-end">
+            <%= form_with url: items_path, method: :get, local: true do |f| %>
+                <div class="category-filter">
+                    <p>カテゴリで絞り込み</p>
+                    <% @categories.each do |category| %>
+                        <label class="mr-2">
+                            <%= check_box_tag 'category_ids[]', category.id, params[:category_ids]&.map(&:to_i)&.include?(category.id) %>
+                            <%= category.name %>
+                        </label>
+                    <% end %>
+                    <%= f.submit '検索', name: nil %>
+                </div>
+                <div class="mt-3">
+                    <p>キーワードで検索</p>
+                    <%= f.text_field :keyword, placeholder: "キーワードを入力してください", size: 40 %>
+                    <%= f.submit '検索', name: nil %>
+                </div>
             <% end %>
         </div>
+
         <div class="row mt-5 index-left w-100">
             <% @items.each do |item| %>
                 <div class="one-post col-sm-4 mb-3">

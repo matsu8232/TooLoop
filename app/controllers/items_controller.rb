@@ -15,7 +15,11 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.page(params[:page]).reverse_order
-    @items = @items.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
+    @items = @items.where('name LIKE ?', "%#{params[:keyword]}%") if params[:keyword].present?
+    @categories = Category.all
+    if params[:category_ids].present?
+      @items = @items.where(category_id: params[:category_ids])
+    end
   end
 
   def show
