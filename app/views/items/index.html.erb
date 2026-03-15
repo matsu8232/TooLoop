@@ -17,7 +17,7 @@
                 </div>
                 <div class="mt-3">
                     <p>キーワードで検索</p>
-                    <%= f.text_field :keyword, placeholder: "キーワードを入力してください", size: 40 %>
+                    <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力してください", size: 40 %>
                     <%= f.submit '検索', name: nil %>
                 </div>
             <% end %>
