@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <h1 class="font-weight-normal mt-5 mb-5">新規予約：<%= @item.name %></h1>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <%= form_with model: @reservation, url: item_reservations_path(@item), local: true, class: "form" do |f| %>
+        <%= render "shared/error_messages", resource: @reservation %>
+        <div class="mb-3">
+          <%= f.label :start_date, "開始日", class: "form-label" %>
+          <%= f.date_field :start_date, value: @start_date, class: "form-control", min: (Date.current + 1).to_s, max: (Date.current >> 1).to_s %>
+        </div>
+        <div class="mb-3">
+          <%= f.label :end_date, "終了日", class: "form-label" %>
+          <%= f.date_field :end_date, value: @end_date, class: "form-control", min: (Date.current + 1).to_s, max: (Date.current >> 1).to_s %>
+        </div>
+        <p class="text-muted small">土日を除いて最大5日間です。1ヶ月先まで予約できます。</p>
+        <div class="mb-3">
+          <%= f.submit "予約する", class: "btn btn-primary" %>
+          <%= link_to "キャンセル", item_reservations_path(@item), class: "btn btn-outline-secondary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <h1 class="font-weight-normal mt-5 mb-5">予約完了</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <p><strong>備品：</strong><%= @item.name %></p>
+      <p><strong>開始日：</strong><%= @reservation.start_date %></p>
+      <p><strong>終了日：</strong><%= @reservation.end_date %></p>
+      <p><strong>予約した人：</strong><%= @reservation.user.name %></p>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <%= link_to "予約一覧に戻る", item_reservations_path(@item), class: "btn btn-outline-primary" %>
+    <% if @reservation.user_id == current_user&.id %>
+      <%= button_to "予約をキャンセル", item_reservation_path(@item, @reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-outline-danger mt-2" %>
+    <% end %>
+  </div>
+</div>

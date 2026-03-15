@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :items
-  resources :users, only:[:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
+  resources :items do
+    resources :reservations, only: [:index, :new, :create, :show, :destroy]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
