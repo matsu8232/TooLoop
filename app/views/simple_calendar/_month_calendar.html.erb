@@ -1,0 +1,36 @@
+<div class="simple-calendar">
+  <div class="calendar-heading d-flex justify-content-between align-items-center">
+    <%= link_to t('simple_calendar.previous', default: '前月へ'), calendar.url_for_previous_view, class: 'calendar-nav-link' %>
+    <% current_month = start_date.beginning_of_month %>
+    <span class="calendar-title fs-4">
+      <%= current_month.strftime('%Y年%m月') %>
+    </span>
+    <%= link_to t('simple_calendar.next', default: '次月へ'), calendar.url_for_next_view, class: 'calendar-nav-link' %>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
