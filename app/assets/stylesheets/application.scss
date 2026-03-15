@@ -93,3 +93,16 @@ footer div:last-child {
 .simple-calendar .calendar-nav-link {
     font-size: 0.9rem;
 }
+
+.calendar {
+    flex-grow: 1; 
+}
+
+.simple-calendar {
+    width: 100%;
+}
+
+.simple-calendar table {
+    table-layout: fixed;
+    width: 100%;
+}
