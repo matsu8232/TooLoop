@@ -95,7 +95,9 @@ footer div:last-child {
 }
 
 .calendar {
-    flex-grow: 1; 
+    flex-grow: 1;
+    max-width: 600px;
+    margin-left: 20px;
 }
 
 .simple-calendar {

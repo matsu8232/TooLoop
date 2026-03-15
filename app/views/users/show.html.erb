@@ -35,5 +35,55 @@
             <% end %>
         </div>
         <%= paginate @items %>
+        
+        <% if user_signed_in? && @user == current_user %>
+            <h2 class="mt-4">予約した備品</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>備品名</th>
+                        <th>期間</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @future_reservations.each do |reservation| %>
+                        <tr>
+                            <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
+                            <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
+                            <td><%= link_to '詳細', item_reservation_path(reservation.item, reservation), class: 'btn btn-sm btn-outline-primary' %></td>
+                        </tr>
+                    <% end %>
+                    <% if @future_reservations.empty? %>
+                        <tr>
+                            <td colspan="3">現在、予約している備品はありません。</td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+
+            <h2 class="mt-4">過去の予約</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>備品名</th>
+                        <th>期間</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @past_reservations.each do |reservation| %>
+                        <tr>
+                            <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
+                            <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
+                        </tr>
+                    <% end %>
+                    <% if @past_reservations.empty? %>
+                        <tr>
+                            <td colspan="2">過去の予約はありません。</td>
+                        </tr>
+                    <% end %>
+                </tbody>
+            </table>
+        <% end %>
     </div>
 </div>
