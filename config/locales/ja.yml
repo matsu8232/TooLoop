@@ -1,5 +1,12 @@
 ja:
   activerecord:
+    attributes:
+      reservation:
+        start_date: "開始日"
+        end_date: "終了日"
+      item:
+        name: "備品名"
+        description: "説明文"
     errors:
       models:
         item:

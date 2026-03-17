@@ -24,6 +24,11 @@
       <% end %>
     </header>
     <%= yield %>
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type == 'notice' ? 'success' : 'danger' %>">
+        <%= message %>
+      </div>
+    <% end %>
     <footer>
       <div>TooLoop</div>
       <div>管理：情報化推進室</div>
