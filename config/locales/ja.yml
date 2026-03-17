@@ -6,16 +6,6 @@ ja:
         end_date: "終了日"
       item:
         name: "備品名"
-        description: "説明文"
-    errors:
-      models:
-        item:
-          attributes:
-            name:
-              blank: "備品名を入力してください"
-            description:
-              blank: "備品の説明を入力してください"
-        chat:
-          attributes:
-            message:
-              blank: "メッセージを入力してください"
+        description: "備品の説明"
+      chat:
+        message: "メッセージ"
