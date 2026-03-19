@@ -3,6 +3,9 @@ class ReservationsController < ApplicationController
   before_action :set_item
 
   def index
+    @from = Date.current + 1
+    @to = Date.current >> 1
+    @reserved_dates = Reservation.reserved_dates_for_item(@item, from: @from, to: @to)
     @reservations = @item.reservations.where("end_date >= ?", Date.current).order(start_date: :asc)
   end
 
