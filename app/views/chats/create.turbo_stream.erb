@@ -8,10 +8,8 @@
     <%= turbo_stream.append "messages" do %>
         <%= render "chat", chat: @chat %>
     <% end %>
-
     <%= turbo_stream.update "chat_form" do %>
         <%= render "form", chat: Chat.new(room_id: @chat.room_id) %>
     <% end %>
-
     <%= turbo_stream.update "chat_error", "" %>
 <% end %>
