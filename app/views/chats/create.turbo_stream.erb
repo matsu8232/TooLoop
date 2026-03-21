@@ -1,0 +1,17 @@
+<% if @chat.errors.any? %>
+    <%= turbo_stream.update "chat_error" do %>
+        <div class="text-danger mb-2">
+            <%= @chat.errors.full_messages.first %>
+        </div>
+    <% end %>
+<% else %>
+    <%= turbo_stream.append "messages" do %>
+        <%= render "chat", chat: @chat %>
+    <% end %>
+
+    <%= turbo_stream.update "chat_form" do %>
+        <%= render "form", chat: Chat.new(room_id: @chat.room_id) %>
+    <% end %>
+
+    <%= turbo_stream.update "chat_error", "" %>
+<% end %>

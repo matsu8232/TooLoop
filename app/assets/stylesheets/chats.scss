@@ -1,0 +1,23 @@
+.cover-chat-show {
+    height: 100%;
+    width: 100%;
+    //background-image: url(/assets/mypage-scaled.jpg);
+    //background-color: rgba(255, 255, 255, 0.4);
+    //background-blend-mode: lighten;
+    //background-size: 100% 100%;
+}
+
+.message {
+    background-color: white;
+    width: 100vh;
+    padding: 10px 0 0 10px;
+}
+
+.delete-button-wrapper {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.chat-item:hover .delete-button-wrapper {
+    opacity: 1;
+}

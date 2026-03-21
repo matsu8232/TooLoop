@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :items do
     resources :reservations, only: [:index, :new, :create, :show, :destroy]
   end
+  resources :chats, only: [:show, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

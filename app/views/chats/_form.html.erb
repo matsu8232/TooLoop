@@ -1,0 +1,9 @@
+<div id="chat_form">
+    <%= form_with model: chat do |f| %>
+        <div class="d-flex gap-2">
+            <%= f.text_field :message, class: "form-control", placeholder: "メッセージを入力して下さい" %>
+            <%= f.submit "送信する", class: "btn btn-light btn-outline-dark btn-sm" %>
+        </div>
+        <%= f.hidden_field :room_id %>
+    <% end %>
+</div>
