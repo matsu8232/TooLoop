@@ -1,3 +1,24 @@
+h1 {
+    font-family: serif;
+}
+
+.cover-item-new {
+    height: 100%;
+    width: 100%;
+    //background-image: url(/assets/new.jpg);
+    //background-color: rgba(255, 255, 255, 0.4);
+    //background-blend-mode: lighten;
+    //background-size: 100% 100%;
+}
+
+.form-label {
+    font-size: 20px;
+}
+
+.form-group {
+    width: 600px;
+}
+
 .page a,
 .next a,
 .last a,
