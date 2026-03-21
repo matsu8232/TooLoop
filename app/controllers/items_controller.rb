@@ -24,6 +24,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @from = Date.current + 1
+    @to = Date.current >> 1
+    @reserved_dates = Reservation.reserved_dates_for_item(@item, from: @from, to: @to)
   end
 
   def edit

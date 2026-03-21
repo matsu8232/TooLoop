@@ -23,18 +23,15 @@
                 <%= link_to '備品一覧へ', items_path, class: "btn btn-dark mt-3" %>
             </div>
             <div class="calendar ml-5 mt-5">
-                <% from = Date.current + 1 %>
-                <% to = Date.current >> 1 %>
-                <% reserved_dates = Reservation.reserved_dates_for_item(@item, from: from, to: to) %>
                 <%= month_calendar do |date| %>
                     <%= date.day %>
-                    <% if date >= from && date <= to && date.wday != 0 && date.wday != 6 %>
-                        <% if reserved_on?(reserved_dates, date) %>
+                    <% if date >= @from && date <= @to && date.wday != 0 && date.wday != 6 %>
+                        <% if reserved_on?(@reserved_dates, date) %>
                             <div class="small text-danger">予約済</div>
                         <% else %>
                             <div class="small text-success">◯</div>
                         <% end %>
-                    <% elsif date >= from && date <= to %>
+                    <% elsif date >= @from && date <= @to %>
                         <div class="small text-muted">対象外</div>
                     <% end %>
                 <% end %>
