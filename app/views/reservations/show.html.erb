@@ -12,7 +12,9 @@
       </div>
     </div>
     <%= link_to "備品詳細へ", item_path(@item) %><br>
-    <% if current_user != @reservation.item.user %>
+    <% if current_user == @reservation.item.user %>
+      <%= link_to '予約した人とチャットを始める', chat_path(@reservation.user.id), class: "btn btn-outline-primary mt-2" %>
+    <% else %>
       <%= link_to '所有者とチャットを始める', chat_path(@reservation.item.user.id), class: "btn btn-primary mt-2" %>
     <% end %>
     <% if @reservation.user_id == current_user.id %>
