@@ -11,11 +11,12 @@
         <p><strong>予約した人：</strong><%= link_to @reservation.user.name, user_path(@reservation.user) %></p>
       </div>
     </div>
-    <div class="mt-4">
-      <%= link_to "備品詳細へ", item_path(@item) %>
-      <% if @reservation.user_id == current_user&.id %>
-        <%= button_to "予約をキャンセル", item_reservation_path(@item, @reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-danger mt-2" %>
-      <% end %>
-    </div>
+    <%= link_to "備品詳細へ", item_path(@item) %><br>
+    <% if current_user != @reservation.item.user %>
+      <%= link_to '所有者とチャットを始める', chat_path(@reservation.item.user.id), class: "btn btn-primary mt-2" %>
+    <% end %>
+    <% if @reservation.user_id == current_user.id %>
+      <%= button_to "予約をキャンセル", item_reservation_path(@item, @reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-danger mt-2" %>
+    <% end %>
   </div>
 </div>
