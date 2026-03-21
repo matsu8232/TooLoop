@@ -17,7 +17,7 @@
           </div>
           <p class="text-muted small">土日を除いて最大5日間です。1ヶ月先まで予約できます。</p>
           <div class="mb-3">
-            <%= f.submit "予約する", class: "btn btn-primary" %>
+            <%= f.submit "予約する", data: { turbo_confirm: "予約を確定しますか？" }, class: "btn btn-primary" %>
             <%= link_to "キャンセル", item_reservations_path(@item), class: "btn btn-outline-secondary" %>
           </div>
         <% end %>
