@@ -3,7 +3,7 @@
         <div class="row mt-5">
             <h1 class="font-weight-normal">備品一覧</h1>
         </div>
-        <div class="row mb-3 align-self-end">
+        <div class="row mb-5 align-self-end">
             <%= form_with url: items_path, method: :get, local: true do |f| %>
                 <div class="category-filter">
                     <p>カテゴリで絞り込み</p>
@@ -23,7 +23,7 @@
             <% end %>
         </div>
 
-        <div class="row mt-5 index-left w-100">
+        <div class="row mb-3 index-left w-100">
             <% @items.each do |item| %>
                 <div class="one-post col-sm-4 mb-3">
                     <%= link_to item_path(item) do %>

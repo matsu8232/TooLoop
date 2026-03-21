@@ -19,6 +19,31 @@ h1 {
     width: 600px;
 }
 
+.cover-item-index {
+    height: 100%;
+    width: 100%;
+    //background-image: url(/assets/index.jpg);
+    //background-color: rgba(255, 255, 255, 0.4);
+    //background-blend-mode: lighten;
+    //background-size: 100% 100%;
+}
+
+.one-post img:hover {
+    transform: scale(1.2,1.2);
+}
+
+.caption {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.index-left {
+    margin-left: 2.5rem!important;
+}
+
+
+
 .page a,
 .next a,
 .last a,
