@@ -1,62 +1,63 @@
-<div class="container">
-  <div class="row">
-    <h1 class="font-weight-normal mt-5 mb-5">予約カレンダー：<%= @item.name %></h1>
-  </div>
-  <p class="mb-4">土日を除いて最大5日間、1ヶ月先まで予約できます。予約開始日を選択してください。</p>
-  <div class="row">
-    <div class="col-12">
-      <%= month_calendar do |date| %>
-        <%= date.day %>
-        <% if date >= @from && date <= @to && date.wday != 0 && date.wday != 6 %>
-          <% if reserved_on?(@reserved_dates, date) %>
-            <div class="small text-danger">予約済</div>
-          <% else %>
-            <% if @item.user == current_user %>
-              <div class="small text-success">◯</div>
-            <% else %>
-              <%= link_to "◯", new_item_reservation_path(@item, start_date: date, end_date: date), class: "small" %>
-            <% end %>
-          <% end %>
-        <% elsif date >= @from && date <= @to %>
-          <div class="small text-muted">対象外</div>
-        <% end %>
-      <% end %>
+<div class="cover-reservation-index">
+  <div class="container">
+    <div class="row">
+      <h1 class="font-weight-normal mt-5 mb-5">予約カレンダー：<%= @item.name %></h1>
     </div>
-  </div>
-  <div class="row mb-4">
-    <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary ms-2" %>
-  </div>
-  <% if @item.user == current_user %>
-    <h2>予約受付状況</h2>
-    <% if @reservations.any? %>
-      <div class="row mt-5">
-        <h2>予約受付状況</h2>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>開始日</th>
-              <th>終了日</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @reservations.each do |reservation| %>
-              <tr>
-                <td><%= reservation.start_date %></td>
-                <td><%= reservation.end_date %></td>
-                <td>
-                  <%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %>
-                  <% if reservation.user_id == current_user&.id %>
-                    <%= button_to "キャンセル", item_reservation_path(@item, reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-sm btn-outline-danger" %>
-                  <% end %>
-                </td>
-              </tr>
+    <p class="mb-4">土日を除いて最大5日間、1ヶ月先まで予約できます。予約開始日を選択してください。</p>
+    <div class="row">
+      <div class="col-12">
+        <%= month_calendar do |date| %>
+          <%= date.day %>
+          <% if date >= @from && date <= @to && date.wday != 0 && date.wday != 6 %>
+            <% if reserved_on?(@reserved_dates, date) %>
+              <div class="small text-danger">予約済</div>
+            <% else %>
+              <% if @item.user == current_user %>
+                <div class="small text-success">◯</div>
+              <% else %>
+                <%= link_to "◯", new_item_reservation_path(@item, start_date: date, end_date: date), class: "small" %>
+              <% end %>
             <% end %>
-          </tbody>
-        </table>
+          <% elsif date >= @from && date <= @to %>
+            <div class="small text-muted">対象外</div>
+          <% end %>
+        <% end %>
       </div>
-    <% else %>
-      <p>現在、予約している人はいません。</p>
+    </div>
+    <div class="row mb-4">
+      <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary ms-2" %>
+    </div>
+    <% if @item.user == current_user %>
+      <h2>予約受付状況</h2>
+      <% if @reservations.any? %>
+        <div class="row mt-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>開始日</th>
+                <th>終了日</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @reservations.each do |reservation| %>
+                <tr>
+                  <td><%= reservation.start_date %></td>
+                  <td><%= reservation.end_date %></td>
+                  <td>
+                    <%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %>
+                    <% if reservation.user_id == current_user&.id %>
+                      <%= button_to "キャンセル", item_reservation_path(@item, reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-sm btn-outline-danger" %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+        <p>現在、予約している人はいません。</p>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

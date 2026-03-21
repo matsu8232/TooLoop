@@ -1,23 +1,27 @@
-<h1>備品登録</h1>
-<% if @item.errors.any? %>
-    <div class="card text-center text-white bg-danger mt-3">
-        <%= @item.errors.count %>件のエラーが発生しました
-        <% @item.errors.full_messages.each do |message| %>
-            <%= message %>
+<div class="cover-item-new">
+    <div class="container">
+        <h1>備品登録</h1>
+        <% if @item.errors.any? %>
+            <div class="card text-center text-white bg-danger mt-3">
+                <%= @item.errors.count %>件のエラーが発生しました
+                <% @item.errors.full_messages.each do |message| %>
+                    <%= message %>
+                <% end %>
+            </div>
+        <% end %>
+        <%= form_with model: @item, local: true do |f| %>
+            <h4>備品名</h4>
+            <%= f.text_field :name %>
+            <h4>備品の説明</h4>
+            <%= f.text_area :description %>
+            <h4>画像</h4>
+            <%= f.file_field :image %>
+            <p></p>
+            <h4>カテゴリ</h4>
+            <%= f.collection_select :category_id, Category.all, :id, :name %>
+            <h4>状態</h4>
+            <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {}, { class: "custom-select w-25 mb-3" } %><br>
+            <%= f.submit '登録', class: 'btn btn-success' %>
         <% end %>
     </div>
-<% end %>
-<%= form_with model: @item, local: true do |f| %>
-    <h4>備品名</h4>
-    <%= f.text_field :name %>
-    <h4>備品の説明</h4>
-    <%= f.text_area :description %>
-    <h4>画像</h4>
-    <%= f.file_field :image %>
-    <p></p>
-    <h4>カテゴリ</h4>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-    <h4>状態</h4>
-    <%= f.select :status, Item.statuses.keys.map { |k| [t("enums.item.status.#{k}"), k] }, {}, { class: "custom-select w-25 mb-3" } %><br>
-    <%= f.submit '登録', class: 'btn btn-success' %>
-<% end %>
+</div>
