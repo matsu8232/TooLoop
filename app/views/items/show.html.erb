@@ -11,19 +11,16 @@
                 <% else %>
                     <%= image_tag 'no_image', size: "450x350" %>
                 <% end %>
-                <h2>所有課</h2>
-                <%= link_to @item.user.name, user_path(@item.user) %><br>
-                <h2>備品の説明</h2>
-                <p><%= @item.description %></p>
-                <h2>カテゴリ</h2>
-                <p><%= @item.category.name %></p>
-                <h2>状態</h2>
-                <p><%= t("enums.item.status.#{@item.status}") %></p>
+                <p id="text">【備品の説明】</p>
+                <p id="text"><%= @item.description %><p>
+                <p id="text">【所有課】<%= link_to @item.user.name, user_path(@item.user) %></p>
+                <p id="text">【カテゴリ】<%= @item.category.name %></p>
+                <p id="text">【状態】<%= t("enums.item.status.#{@item.status}") %></p>
                 <% if @item.user == current_user %>
-                    <%= link_to '編集する', edit_item_path(@item.id) %><br>
-                    <%= link_to '削除する', item_path(@item.id), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %><br>
+                    <%= link_to '編集する', edit_item_path(@item.id), class: "btn btn-info mr-3" %>
+                    <%= link_to '削除する', item_path(@item.id), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %><br>
                 <% end %>
-                <%= link_to '備品一覧へ', items_path %>
+                <%= link_to '備品一覧へ', items_path, class: "btn btn-dark mt-3" %>
             </div>
             <div class="calendar ml-5 mt-5">
                 <% from = Date.current + 1 %>
