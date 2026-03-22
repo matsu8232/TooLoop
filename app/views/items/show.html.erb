@@ -12,7 +12,7 @@
                     <%= image_tag 'no_image', size: "450x350" %>
                 <% end %>
                 <p id="text">【備品の説明】</p>
-                <p id="text"><%= @item.description %><p>
+                <%= @item.description %>
                 <p id="text">【所有課】<%= link_to @item.user.name, user_path(@item.user) %></p>
                 <p id="text">【カテゴリ】<%= @item.category.name %></p>
                 <p id="text">【状態】<%= t("enums.item.status.#{@item.status}") %></p>
