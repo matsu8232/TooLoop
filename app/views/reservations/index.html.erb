@@ -1,7 +1,7 @@
 <div class="cover-reservation-index">
-  <div class="container">
-    <div class="row">
-      <h1 class="font-weight-normal mt-5 mb-5">予約カレンダー：<%= @item.name %></h1>
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row mt-5">
+      <h1 class="font-weight-normal">予約カレンダー：<%= @item.name %></h1>
     </div>
     <p class="mb-4">土日を除いて最大5日間、1ヶ月先まで予約できます。予約開始日を選択してください。</p>
     <div class="row">
@@ -23,14 +23,12 @@
           <% end %>
         <% end %>
       </div>
+      <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary" %>
     </div>
-    <div class="row mb-4">
-      <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary ms-2" %>
-    </div>
-    <% if @item.user == current_user %>
-      <h2>予約受付状況</h2>
-      <% if @reservations.any? %>
-        <div class="row mt-5">
+    <div class="history-group mt-3 mb-3">
+      <% if @item.user == current_user %>
+        <h3 class="font-weight-normal">予約受付状況</h3>
+        <% if @reservations.any? %>
           <table class="table">
             <thead>
               <tr>
@@ -44,20 +42,15 @@
                 <tr>
                   <td><%= reservation.start_date %></td>
                   <td><%= reservation.end_date %></td>
-                  <td>
-                    <%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %>
-                    <% if reservation.user_id == current_user&.id %>
-                      <%= button_to "キャンセル", item_reservation_path(@item, reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-sm btn-outline-danger" %>
-                    <% end %>
-                  </td>
+                  <td><%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %></td>
                 </tr>
               <% end %>
             </tbody>
           </table>
-        </div>
-      <% else %>
-        <p>現在、予約している人はいません。</p>
+        <% else %>
+          <p>現在、予約している人はいません。</p>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
