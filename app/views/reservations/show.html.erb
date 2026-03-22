@@ -1,24 +1,24 @@
 <div class="cover-reservation-show">
-  <div class="container">
-    <div class="row">
-      <h1 class="font-weight-normal mt-5 mb-5">予約詳細</h1>
+  <div class="container d-flex flex-column align-items-center">
+    <div class="row mt-5">
+      <h1 class="font-weight-normal">予約詳細</h1>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><strong>備品：</strong><%= @item.name %></p>
-        <p><strong>開始日：</strong><%= @reservation.start_date %></p>
-        <p><strong>終了日：</strong><%= @reservation.end_date %></p>
-        <p><strong>予約した人：</strong><%= link_to @reservation.user.name, user_path(@reservation.user) %></p>
+    <div class="row mt-5">
+      <div class="d-block">
+        <p id="text"><strong>備品：</strong><%= @item.name %></p>
+        <p id="text"><strong>開始日：</strong><%= @reservation.start_date %></p>
+        <p id="text"><strong>終了日：</strong><%= @reservation.end_date %></p>
+        <p id="text"><strong>予約した人：</strong><%= link_to @reservation.user.name, user_path(@reservation.user) %></p>
+      </div>
+      <div class="d-block">
+        <%= link_to "備品詳細へ", item_path(@item), class: "btn btn-outline-dark" %><br>
+        <% if current_user == @reservation.item.user %>
+          <%= link_to '予約した人とチャットを始める', chat_path(@reservation.user.id), class: "btn btn-outline-primary mt-3" %>
+        <% else %>
+          <%= link_to '所有者とチャットを始める', chat_path(@reservation.item.user.id), class: "btn btn-primary mt-3" %>
+          <%= button_to "予約をキャンセル", item_reservation_path(@item, @reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-danger mt-3" %>
+        <% end %>
       </div>
     </div>
-    <%= link_to "備品詳細へ", item_path(@item), class: "btn btn-outline-dark mt-3" %><br>
-    <% if current_user == @reservation.item.user %>
-      <%= link_to '予約した人とチャットを始める', chat_path(@reservation.user.id), class: "btn btn-outline-primary mt-2" %>
-    <% else %>
-      <%= link_to '所有者とチャットを始める', chat_path(@reservation.item.user.id), class: "btn btn-primary mt-2" %>
-    <% end %>
-    <% if @reservation.user_id == current_user.id %>
-      <%= button_to "予約をキャンセル", item_reservation_path(@item, @reservation), method: :delete, form: { data: { turbo_confirm: "予約をキャンセルしますか？" } }, class: "btn btn-danger mt-2" %>
-    <% end %>
   </div>
 </div>
