@@ -3,14 +3,14 @@
     <div class="row mt-5">
       <h1 class="font-weight-normal">予約詳細</h1>
     </div>
-    <div class="row mt-5">
+    <div class="row">
       <div class="d-block">
         <p id="text"><strong>備品：</strong><%= @item.name %></p>
         <p id="text"><strong>開始日：</strong><%= @reservation.start_date %></p>
         <p id="text"><strong>終了日：</strong><%= @reservation.end_date %></p>
         <p id="text"><strong>予約した人：</strong><%= link_to @reservation.user.name, user_path(@reservation.user) %></p>
       </div>
-      <div class="d-block">
+      <div class="d-block mt-3">
         <%= link_to "備品詳細へ", item_path(@item), class: "btn btn-outline-dark" %><br>
         <% if current_user == @reservation.item.user %>
           <%= link_to '予約した人とチャットを始める', chat_path(@reservation.user.id), class: "btn btn-outline-primary mt-3" %>
