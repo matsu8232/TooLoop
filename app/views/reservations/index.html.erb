@@ -8,7 +8,7 @@
       <div class="col-12">
         <%= month_calendar do |date| %>
           <%= date.day %>
-          <% if date >= @from && date <= @to && date.wday != 0 && date.wday != 6 %>
+          <% if date >= @from && date <= @to && date.on_weekday? %>
             <% if reserved_on?(@reserved_dates, date) %>
               <div class="small text-danger">予約済</div>
             <% else %>
