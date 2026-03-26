@@ -3,12 +3,10 @@ h1 {
 }
 
 .cover-item-new {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/new.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
 .form-label {
@@ -20,12 +18,10 @@ h1 {
 }
 
 .cover-item-index {
-    height: 120%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/index.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
 .one-post img:hover {
@@ -43,12 +39,10 @@ h1 {
 }
 
 .cover-item-show {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/show.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
 #text {
@@ -56,13 +50,102 @@ h1 {
     margin-top: 15px;
 }
 
-.cover-edit {
-    height: 100%;
+.cover-item-edit {
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/edit.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
+}
+
+/* translucent card wrapper on item pages */
+.cover-item-index > .container,
+.cover-item-new > .container,
+.cover-item-show > .container,
+.cover-item-edit > .container {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
+    backdrop-filter: blur(6px);
+}
+
+.cover-item-index .one-post {
+    background: rgba(255, 255, 255, 0.66);
+    border-radius: 18px;
+    padding: 12px;
+    box-shadow: 0 10px 25px rgba(35, 86, 175, 0.08);
+    overflow: hidden;
+}
+
+.cover-item-index .caption {
+    color: #1f3b73;
+}
+
+/* Warm blue buttons on item pages */
+.cover-item-new .btn-success,
+.cover-item-edit .btn-success {
+    background-color: #2f6fdb;
+    border-color: #2f6fdb;
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.cover-item-new .btn-success:hover,
+.cover-item-edit .btn-success:hover {
+    background-color: #245fb9;
+    border-color: #245fb9;
+    color: #ffffff;
+}
+
+.cover-item-edit .btn-dark {
+    color: #1f3b73;
+    background: rgba(207, 228, 255, 0.45);
+    border-color: rgba(47, 111, 219, 0.35);
+}
+
+.cover-item-show .btn-info {
+    background-color: #2f6fdb;
+    border-color: #2f6fdb;
+    color: #ffffff;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.cover-item-show .btn-dark {
+    background: rgba(207, 228, 255, 0.45);
+    border-color: rgba(47, 111, 219, 0.35);
+    color: #1f3b73;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.cover-item-show #text {
+    color: rgba(31, 59, 115, 0.92);
+}
+
+/* item page forms */
+.cover-item-new .form-label,
+.cover-item-edit .form-label {
+    color: #1f3b73;
+    font-weight: 800;
+}
+
+/* pagination color within item list */
+.cover-item-index .page a,
+.cover-item-index .next a,
+.cover-item-index .last a,
+.cover-item-index .first a,
+.cover-item-index .prev a {
+    color: #1f3b73;
+}
+
+.cover-item-index .page a:hover,
+.cover-item-index .next a:hover,
+.cover-item-index .last a:hover,
+.cover-item-index .first a:hover,
+.cover-item-index .prev a:hover {
+    color: #245fb9;
 }
 
 .page a,
@@ -85,4 +168,43 @@ h1 {
 
 .current {
     font-weight: bold;
+}
+
+/* Blue calendar card on item show */
+.cover-item-show .calendar {
+    margin-left: 0;
+    max-width: 640px;
+    width: 100%;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(35, 86, 175, 0.12);
+    backdrop-filter: blur(6px);
+}
+
+.cover-item-show .calendar .btn {
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.cover-item-show .calendar .btn-primary {
+    background-color: #2f6fdb;
+    border-color: #2f6fdb;
+}
+
+.cover-item-show .calendar .btn-primary:hover {
+    background-color: #245fb9;
+    border-color: #245fb9;
+}
+
+.cover-item-show .calendar .btn-outline-primary {
+    color: #2f6fdb;
+    border-color: rgba(47, 111, 219, 0.35);
+    background: rgba(207, 228, 255, 0.45);
+}
+
+.cover-item-show .calendar .btn-outline-primary:hover {
+    color: #245fb9;
+    border-color: rgba(47, 111, 219, 0.65);
+    background: rgba(176, 212, 255, 0.45);
 }

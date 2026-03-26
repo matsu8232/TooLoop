@@ -1,17 +1,15 @@
 <div class="cover-chat-show">
     <div class="container d-flex flex-column align-items-center">
         <div class="row mt-5 mb-3">
-            <h1 class="font-weight-normal"><span style="color: 	#0072BC;"><%= @user.name %>さん</span>とのトークルーム</h1>
+            <h1 class="font-weight-normal"><span class="chat-room-title-user"><%= @user.name %>さん</span>とのトークルーム</h1>
         </div>
         <div class="message" id="messages">
             <% @chats.each do |chat| %>
                 <% if chat.user_id == current_user.id %>
                     <%= render 'chat', chat: chat %>
                 <% else %>
-                    <div class="mb-3" style="text-align: left;">
-                        <span style="background-color: #f6cedc; padding: 8px 12px; border-radius: 10px; display: inline-block;">
-                            <%= chat.message %>
-                        </span>                        
+                    <div class="mb-3 chat-message--other">
+                        <span class="chat-bubble chat-bubble--other"><%= chat.message %></span>
                     </div>
                 <% end %>
             <% end %>

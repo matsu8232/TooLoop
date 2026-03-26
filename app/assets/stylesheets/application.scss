@@ -30,7 +30,8 @@ html,
 
 header {
     display: flex;
-    background-color: black;
+    background: linear-gradient(90deg, rgba(13, 128, 214, 0.95), rgba(0, 107, 139, 0.9));
+    backdrop-filter: blur(8px);
 }
 
 header div:first-child {
@@ -91,4 +92,92 @@ a:hover {
 .simple-calendar table {
     table-layout: fixed;
     width: 100%;
+}
+
+/* Warm UI for simple_calendar */
+.simple-calendar {
+    --loop-blue-ink: #1f3b73;
+    --loop-blue-accent: #2f6fdb;
+    --loop-blue-accent-soft: #cfe3ff;
+    --loop-blue-cream: rgba(226, 241, 255, 0.92);
+}
+
+.simple-calendar .calendar-heading {
+    background: var(--loop-blue-cream);
+    border-radius: 14px;
+    padding: 10px 14px;
+    margin-bottom: 14px;
+    box-shadow: 0 10px 25px rgba(35, 86, 175, 0.10);
+}
+
+.simple-calendar .calendar-title {
+    color: var(--loop-blue-ink);
+    font-weight: 700;
+}
+
+.simple-calendar .calendar-nav-link {
+    color: var(--loop-blue-ink);
+    font-weight: 700;
+}
+
+.simple-calendar .calendar-nav-link:hover {
+    color: var(--loop-blue-accent);
+    text-decoration: underline;
+}
+
+.simple-calendar table.table {
+    background: transparent;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.simple-calendar thead th {
+    background: var(--loop-blue-accent-soft);
+    color: var(--loop-blue-ink);
+    border: 1px solid rgba(35, 86, 175, 0.18);
+    text-align: center;
+    padding: 10px 6px;
+    vertical-align: middle;
+}
+
+.simple-calendar td {
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(35, 86, 175, 0.18);
+    height: 56px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+/* Zebra stripes in Bootstrap can feel cold, so keep stripes subtle */
+.simple-calendar table.table-striped > tbody > tr:nth-of-type(odd) > td {
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.simple-calendar td a {
+    display: block;
+    width: 100%;
+    color: var(--loop-blue-accent);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.simple-calendar td a:hover {
+    color: #245fb9;
+    text-decoration: underline;
+}
+
+/* Override Bootstrap status colors inside the calendar only */
+.simple-calendar .text-success {
+    color: #1b6fd6 !important;
+    font-weight: 800;
+}
+
+.simple-calendar .text-danger {
+    color: #c04a3a !important;
+    font-weight: 800;
+}
+
+.simple-calendar .text-muted {
+    color: #6d7fad !important;
+    font-weight: 800;
 }

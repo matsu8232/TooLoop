@@ -1,26 +1,145 @@
 .cover-reservation-index {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/index.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
+}
+
+.cover-reservation-index > .container,
+.cover-reservation-new > .container,
+.cover-reservation-show > .container {
+    background: rgba(255, 255, 255, 0.72);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
+    backdrop-filter: blur(6px);
+}
+
+.cover-reservation-index .history-group {
+    background: rgba(207, 228, 255, 0.30);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.cover-reservation-index .history-group .table {
+    margin-bottom: 0;
+    background: transparent;
+}
+
+.cover-reservation-index .history-group th,
+.cover-reservation-index .history-group td {
+    border-color: rgba(35, 86, 175, 0.18);
+}
+
+.cover-reservation-index .btn {
+    border-radius: 12px;
+    font-weight: 700;
 }
 
 .cover-reservation-new {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/index.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
 .cover-reservation-show {
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    //background-image: url(/assets/index.jpg);
-    //background-color: rgba(255, 255, 255, 0.4);
-    //background-blend-mode: lighten;
-    //background-size: 100% 100%;
+    padding: 32px 16px;
+    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
+}
+
+/* Buttons (warm palette) */
+.cover-reservation-index .btn-primary,
+.cover-reservation-new .btn-primary,
+.cover-reservation-show .btn-primary {
+    background-color: #2f6fdb;
+    border-color: #2f6fdb;
+    color: #ffffff;
+}
+
+.cover-reservation-index .btn-primary:hover,
+.cover-reservation-new .btn-primary:hover,
+.cover-reservation-show .btn-primary:hover {
+    background-color: #245fb9;
+    border-color: #245fb9;
+    color: #ffffff;
+}
+
+.cover-reservation-index .btn-outline-secondary,
+.cover-reservation-new .btn-outline-secondary {
+    color: #1f3b73;
+    border-color: rgba(47, 111, 219, 0.25);
+    background: rgba(207, 228, 255, 0.45);
+}
+
+.cover-reservation-index .btn-outline-secondary:hover,
+.cover-reservation-new .btn-outline-secondary:hover {
+    color: #1f3b73;
+    border-color: rgba(47, 111, 219, 0.45);
+    background: rgba(176, 212, 255, 0.45);
+}
+
+.cover-reservation-show .btn-outline-dark {
+    color: #1f3b73;
+    border-color: rgba(47, 111, 219, 0.25);
+    background: rgba(207, 228, 255, 0.45);
+}
+
+.cover-reservation-show .btn-outline-dark:hover {
+    color: #1f3b73;
+    border-color: rgba(47, 111, 219, 0.45);
+    background: rgba(176, 212, 255, 0.45);
+}
+
+.cover-reservation-show .btn-outline-primary {
+    color: #2f6fdb;
+    border-color: rgba(47, 111, 219, 0.35);
+    background: rgba(207, 228, 255, 0.45);
+}
+
+.cover-reservation-show .btn-outline-primary:hover {
+    color: #245fb9;
+    border-color: rgba(47, 111, 219, 0.65);
+    background: rgba(176, 212, 255, 0.45);
+}
+
+.cover-reservation-show .btn-danger {
+    background-color: #b3472a;
+    border-color: #b3472a;
+    color: #ffffff;
+}
+
+.cover-reservation-show .btn-danger:hover {
+    background-color: #9b3a1f;
+    border-color: #9b3a1f;
+    color: #ffffff;
+}
+
+/* New reservation form */
+.cover-reservation-new .form-label {
+    color: #1f3b73;
+    font-weight: 800;
+}
+
+.cover-reservation-new .form-group {
+    width: 100%;
+    max-width: 600px; /* items.scssの幅上書き */
+}
+
+.cover-reservation-new .form-control {
+    border-radius: 12px;
+    border-color: rgba(47, 111, 219, 0.22);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.cover-reservation-new .form-control:focus {
+    border-color: rgba(47, 111, 219, 0.55);
+    box-shadow: 0 0 0 0.2rem rgba(47, 111, 219, 0.15);
+}
+
+/* Small note text */
+.cover-reservation-new .text-muted {
+    color: rgba(31, 59, 115, 0.7) !important;
 }
