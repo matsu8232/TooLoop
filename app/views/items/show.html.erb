@@ -36,11 +36,11 @@
                     <% end %>
                 <% end %>
                 <div class="mt-3 text-end">
-                    <% if @item.maintenance? %>
-                        <span class="text-danger">現在、メンテナンス中のため予約できません。</span>
-                    <% elsif user_signed_in? && @item.user == current_user %>
+                    <% if user_signed_in? && @item.user == current_user %>
                         <%= link_to '予約受付状況の確認', item_reservations_path(@item), class: 'btn btn-outline-primary' %>
-                    <% elsif user_signed_in? %>
+                    <% elsif @item.maintenance? %>
+                        <span class="text-danger">現在、メンテナンス中のため予約できません。</span>
+                    <% else %>
                         <%= link_to 'この備品を予約する', item_reservations_path(@item), class: 'btn btn-primary' %>
                     <% end %>
                 </div>
