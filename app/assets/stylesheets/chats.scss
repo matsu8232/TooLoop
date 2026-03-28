@@ -53,7 +53,7 @@
     font-weight: 550;
 }
 
-.chat-message--other {
+.chat-message-other {
     text-align: left;
 }
 
@@ -66,10 +66,10 @@
     word-break: break-word;
 }
 
-.chat-bubble--me {
+.chat-bubble-me {
     background: rgba(203, 232, 230, 0.85);
 }
 
-.chat-bubble--other {
+.chat-bubble-other {
     background: rgba(207, 228, 255, 0.85);
 }

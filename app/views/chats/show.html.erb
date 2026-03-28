@@ -8,8 +8,8 @@
                 <% if chat.user_id == current_user.id %>
                     <%= render 'chat', chat: chat %>
                 <% else %>
-                    <div class="mb-3 chat-message--other">
-                        <span class="chat-bubble chat-bubble--other"><%= chat.message %></span>
+                    <div class="mb-3 chat-message-other">
+                        <span class="chat-bubble chat-bubble-other"><%= chat.message %></span>
                     </div>
                 <% end %>
             <% end %>
