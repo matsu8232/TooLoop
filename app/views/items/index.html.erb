@@ -19,6 +19,9 @@
                     <p>キーワードで検索</p>
                     <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力してください", size: 40 %>
                     <%= f.submit '検索', name: nil %>
+                    <% if @items.empty? %>
+                        <p class="text-danger">「<%= params[:keyword]%>」に一致するものはありませんでした。</p>
+                    <% end %>
                 </div>
             <% end %>
         </div>
