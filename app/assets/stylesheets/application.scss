@@ -89,7 +89,6 @@ a:hover {
     width: 100%;
 }
 
-/* Warm UI for simple_calendar */
 .simple-calendar {
     --loop-blue-ink: #1f3b73;
     --loop-blue-accent: #2f6fdb;
@@ -143,7 +142,6 @@ a:hover {
     text-align: center;
 }
 
-/* Zebra stripes in Bootstrap can feel cold, so keep stripes subtle */
 .simple-calendar table.table-striped > tbody > tr:nth-of-type(odd) > td {
     background: rgba(255, 255, 255, 0.72);
 }
@@ -161,7 +159,6 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Override Bootstrap status colors inside the calendar only */
 .simple-calendar .text-success {
     color: #1b6fd6 !important;
     font-weight: 800;

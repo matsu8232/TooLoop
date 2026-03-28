@@ -57,7 +57,6 @@ h1 {
     background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
-/* translucent card wrapper on item pages */
 .cover-item-index > .container,
 .cover-item-new > .container,
 .cover-item-show > .container,
@@ -81,7 +80,6 @@ h1 {
     color: #1f3b73;
 }
 
-/* Warm blue buttons on item pages */
 .cover-item-new .btn-success,
 .cover-item-edit .btn-success {
     background-color: #2f6fdb;
@@ -124,14 +122,12 @@ h1 {
     color: rgba(31, 59, 115, 0.92);
 }
 
-/* item page forms */
 .cover-item-new .form-label,
 .cover-item-edit .form-label {
     color: #1f3b73;
     font-weight: 800;
 }
 
-/* pagination color within item list */
 .cover-item-index .page a,
 .cover-item-index .next a,
 .cover-item-index .last a,
@@ -170,7 +166,6 @@ h1 {
     font-weight: bold;
 }
 
-/* Blue calendar card on item show */
 .cover-item-show .calendar {
     margin-left: 0;
     max-width: 640px;

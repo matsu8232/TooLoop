@@ -14,12 +14,29 @@
 }
 
 .message {
+    height: 70vh;
+    overflow-y: auto;
     width: 100%;
-    max-width: 720px;
+    max-width: 900px;
     margin: 0 auto;
+    margin-bottom: 15px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 18px;
     padding: 14px;
+}
+
+.message::-webkit-scrollbar {
+    width: 8px;
+}
+
+.message::-webkit-scrollbar-thumb {
+    background-color: rgba(35, 86, 175, 0.2);
+    border-radius: 10px;
+}
+
+.chat-form-container {
+    width: 100%;
+    margin-top: 2px;
 }
 
 .delete-button-wrapper {
@@ -31,7 +48,6 @@
     opacity: 1;
 }
 
-/* Chat bubbles */
 .chat-room-title-user {
     color: #1f3b73;
     font-weight: 550;
@@ -47,7 +63,6 @@
     border-radius: 10px;
     margin-bottom: 0;
     color: #1f3b73;
-    max-width: 80%;
     word-break: break-word;
 }
 
