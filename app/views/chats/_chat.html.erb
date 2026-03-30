@@ -4,7 +4,7 @@
             <%= chat.message %>
         </p>
         <div class="delete-button-wrapper">
-            <%= button_to "×", chat_path(chat), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm" %>
+            <%= button_to "×", chat_path(chat), method: :delete, data: { turbo_confirm: "本当に削除しますか？" }, class: "btn btn-danger" %>
         </div>
     </div>
 </div>

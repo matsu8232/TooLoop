@@ -23,6 +23,10 @@
     background: rgba(255, 255, 255, 0.6);
     border-radius: 18px;
     padding: 14px;
+
+    @media (max-width: 768px) {
+        font-size: 13px;
+    }
 }
 
 .message::-webkit-scrollbar {
@@ -42,10 +46,68 @@
 .delete-button-wrapper {
     opacity: 0;
     transition: opacity 0.3s;
+    margin-left: 5px;
+
+    .btn-danger {
+        padding: 2px 6px;
+        font-size: 10px;
+        line-height: 1.4;
+        border-radius: 4px;
+        min-width: 20px;
+    }
+
+    @media (max-width: 768px) {
+        opacity: 0.3;
+        
+        .btn-danger {
+            font-size: 12px;
+        }
+    }
 }
 
 .chat-item:hover .delete-button-wrapper {
     opacity: 1;
+}
+
+.chat-form-wrapper {
+    width: 85%;
+    max-width: 800px;
+    transition: width 0.3s;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+}
+
+#chat_form {
+    .form-control {
+        border-radius: 20px;
+        padding: 10px 15px;
+        border: 1px solid #d1d9e6;
+        
+        &:focus {
+            box-shadow: 0 0 0 3px rgba(35, 86, 175, 0.1);
+            border-color: #1f3b73;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .btn {
+            padding: 6px 12px;
+            font-size: 13px;
+        }
+    }
+}
+
+.chat-room-title {
+    font-size: 26px;
+    text-align: center;
+    word-break: keep-all;
+    
+    @media (max-width: 768px) {
+        font-size: 15px;
+        margin-top: 10px;
+    }
 }
 
 .chat-room-title-user {

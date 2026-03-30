@@ -13,15 +13,19 @@
 
   <body>
     <header>
-      <div><%= link_to root_path, class: "text-white nav-link" do %>TooLoop<% end %></div>
-      <div><%= link_to "備品検索", items_path, class: "text-white nav-link" %></div>
-      <div><%= link_to "備品登録", new_item_path, class: "text-white nav-link" %></div>
-      <% if user_signed_in? %>
-        <div><%= link_to "マイページ", user_path(current_user.id), class: "text-white nav-link" %></div>
-        <div><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-white nav-link" %></div>
-      <% else %>
-        <div><%= link_to "ログイン", new_user_session_path, class: "text-white nav-link" %></div>
-      <% end %>
+      <div class="header-logo">
+        <%= link_to "TooLoop", root_path, class: "text-white nav-link" %>
+      </div>
+      <div class="header-menu">
+        <%= link_to "備品検索", items_path, class: "nav-item" %>
+        <%= link_to "備品登録", new_item_path, class: "nav-item" %>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", user_path(current_user.id), class: "nav-item" %>
+          <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-item" %>
+        <% else %>
+          <%= link_to "ログイン", new_user_session_path, class: "nav-item" %>
+        <% end %>
+      </div>
     </header>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type == 'notice' ? 'success' : 'danger' %>">
