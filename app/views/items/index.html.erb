@@ -13,8 +13,9 @@
                             <%= category.name %>
                         </label>
                     <% end %>
+                    <%= f.submit '絞り込む', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
                 </div>
-                <div class="keyword-filter mt-3">
+                <div class="keyword-filter mt-2">
                     <p class="form-label fw-bold small">キーワードで検索</p>
                     <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力してください", size: 40 %>
                     <%= f.submit '検索', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
