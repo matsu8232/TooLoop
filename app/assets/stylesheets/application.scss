@@ -113,6 +113,8 @@ a:hover {
     --loop-blue-accent: #2f6fdb;
     --loop-blue-accent-soft: #cfe3ff;
     --loop-blue-cream: rgba(226, 241, 255, 0.92);
+    .wday-0 { color: #e74c3c; }
+    .wday-6 { color: #3498db; }
 }
 
 .simple-calendar .calendar-heading {
