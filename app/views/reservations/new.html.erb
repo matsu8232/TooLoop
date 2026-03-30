@@ -14,7 +14,7 @@
           <%= f.label :end_date, "終了日", class: "form-label" %>
           <%= f.date_field :end_date, class: "form-control", min: (Date.current + 1).to_s, max: (Date.current >> 1).to_s %>
         </div>
-        <p class="text-muted small">土日を除いて最大5日間です。1ヶ月先まで予約できます。</p>
+        <p class="text-muted small mb-4">土日を除いて最大5日間です。1ヶ月先まで予約できます。</p>
         <%= f.submit "予約する", data: { turbo_confirm: "予約を確定しますか？" }, class: "btn btn-primary" %>
         <%= link_to "キャンセル", item_reservations_path(@item), class: "btn btn-outline-secondary" %>
       <% end %>

@@ -1,18 +1,18 @@
-.cover-reservation-index {
+.cover-reservation-index, 
+.cover-reservation-new, 
+.cover-reservation-show {
     min-height: 100vh;
     width: 100%;
     padding: 32px 16px;
     background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
-}
 
-.cover-reservation-index > .container,
-.cover-reservation-new > .container,
-.cover-reservation-show > .container {
-    background: rgba(255, 255, 255, 0.72);
-    border-radius: 18px;
-    padding: 24px;
-    box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
-    backdrop-filter: blur(6px);
+    > .container {
+        background: rgba(255, 255, 255, 0.72);
+        border-radius: 18px;
+        padding: 24px;
+        box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
+        backdrop-filter: blur(6px);
+    }
 }
 
 .cover-reservation-index .history-group {
@@ -34,20 +34,6 @@
 .cover-reservation-index .btn {
     border-radius: 12px;
     font-weight: 700;
-}
-
-.cover-reservation-new {
-    min-height: 100vh;
-    width: 100%;
-    padding: 32px 16px;
-    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
-}
-
-.cover-reservation-show {
-    min-height: 100vh;
-    width: 100%;
-    padding: 32px 16px;
-    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
 }
 
 .cover-reservation-index .btn-primary,
