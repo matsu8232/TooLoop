@@ -1,7 +1,7 @@
 <div class="cover-reservation-new">
   <div class="container">
     <div class="row">
-      <h1 class="font-weight-normal mt-3 mb-5">新規予約：<%= @item.name %></h1>
+      <h1 class="mt-3 mb-5">新規予約：<%= @item.name %></h1>
     </div>
     <div class="row">
       <%= form_with model: @reservation, url: item_reservations_path(@item), local: true, class: "form" do |f| %>
