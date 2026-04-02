@@ -32,6 +32,20 @@
         <%= message %>
       </div>
     <% end %>
+    <% if show_breadcrumbs? %>
+      <nav aria-label="breadcrumb" class="app-breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <% breadcrumbs.each_with_index do |crumb, index| %>
+            <% is_last = index == breadcrumbs.length - 1 %>
+            <% if is_last || crumb[:path].blank? %>
+              <li class="breadcrumb-item active" aria-current="page"><%= crumb[:label] %></li>
+            <% else %>
+              <li class="breadcrumb-item"><%= link_to crumb[:label], crumb[:path] %></li>
+            <% end %>
+          <% end %>
+        </ol>
+      </nav>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -201,3 +201,27 @@ header {
     border: none;
     width: 100%;
 }
+
+.app-breadcrumb {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.92);
+    border-bottom: 1px solid rgba(35, 86, 175, 0.12);
+
+    .breadcrumb-item {
+        font-size: 14px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        color: #6d7fad;
+        content: ">";
+        padding: 0 0.4em;
+    }
+
+    .breadcrumb-item a {
+        color: #2f6fdb;
+    }
+
+    .breadcrumb-item.active {
+        color: #4b5a78;
+    }
+}
