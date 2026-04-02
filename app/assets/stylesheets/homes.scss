@@ -3,33 +3,40 @@
     max-width: 400px; 
     min-width: 150px; 
     height: auto;
-    margin-bottom: 20px;
+    display: block;
+    margin: 0 auto 20px;
     animation: fadeIn 1.5s ease-out forwards;
 }  
 
-.cover {
+.cover-top {
+    background-image: url(/assets/top.jpg);
+    background-color: rgba(255, 255, 255, 0.2);
+    background-blend-mode: lighten;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     width: 100%;
     padding: 32px 16px;
-    display: table;
-    background: linear-gradient(180deg, #eaf3ff 0%, #f7fbff 40%, #ffffff 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.text-center {
-    display: table-cell;
-    vertical-align: middle;
+.cover-inner {
+    text-align: center;
 }
 
-.cover .text-center {
-    background: rgba(255, 255, 255, 0.72);
+.cover-top .cover-inner {
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 18px;
-    padding: 44px 28px;
+    padding: 56px 40px;
     box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
     backdrop-filter: blur(6px);
 }
 
-.cover .btn-primary,
-.cover .btn-success {
+.cover-top .btn-primary,
+.cover-top .btn-success {
     margin: 0 10px;
     opacity: 0;
     animation: fadeIn 1s ease-out 1.5s forwards;
@@ -40,8 +47,8 @@
     font-weight: 800;
 }
 
-.cover .btn-primary:hover,
-.cover .btn-success:hover {
+.cover-top .btn-primary:hover,
+.cover-top .btn-success:hover {
     background-color: #245fb9;
     border-color: #245fb9;
     color: #ffffff;
