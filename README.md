@@ -38,13 +38,17 @@
 <img width="40%" alt="スクリーンショット login" src="https://github.com/user-attachments/assets/889ab124-65c4-4e53-8bbe-bc7024d9c7c7">
 
 * 貸出可能な備品があれば登録
-<img width="100%" alt="スクリーンショット registration" src="https://github.com/user-attachments/assets/f06c87ba-7057-4dd6-b878-08836eea44cc">
+<img width="80%" alt="スクリーンショット registration" src="https://github.com/user-attachments/assets/6bc785d5-6a96-4da1-a04b-178e5323f638">
 
 * 備品一覧から借りたい備品を探す
+<img width="80%" alt="スクリーンショット item_index" src="https://github.com/user-attachments/assets/b300a96a-6225-4200-91a3-21bc140b7c7e">
 
 * 予約する
+<img width="40%" alt="スクリーンショット reservatuin_index" src="https://github.com/user-attachments/assets/acdc9132-1c7f-4bec-956d-a52e39ae7137">
+<img width="40%" alt="スクリーンショット reservation_new" src="https://github.com/user-attachments/assets/7d653df6-3a76-4f6b-9e37-e6ccfc6d0795">
 
 * 調整が必要な場合はチャットで
+<img width="80%" alt="スクリーンショット chat" src="https://github.com/user-attachments/assets/3421a8f4-c8d1-48c9-a7fd-1088c932b8db">
 
 # 機能一覧
 * 基本的なCRUD機能
