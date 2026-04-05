@@ -1,4 +1,9 @@
 class ItemsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_item_owner!, only: [:edit, :update, :destroy]
+
   def new
     @item = Item.new
   end
@@ -23,18 +28,15 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @from = Date.current + 1
     @to = Date.current >> 1
     @reserved_dates = Reservation.reserved_dates_for_item(@item, from: @from, to: @to)
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path(@item.id)
     else
@@ -43,13 +45,23 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    item.destroy
+    @item.destroy
     redirect_to items_path
   end
 
   private
+
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def authorize_item_owner!
+    return if @item.user_id == current_user.id
+
+    redirect_to items_path, alert: "この備品を編集する権限がありません。"
+  end
+
   def item_params
-    params.require(:item).permit(:user_id, :name, :description, :category_id, :status, :image)
+    params.require(:item).permit(:name, :description, :category_id, :status, :image)
   end
 end

@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_item
+  before_action :set_reservation, only: [:show, :destroy]
+  before_action :authorize_reservation_participant!, only: [:show]
 
   def index
     @from = Date.current + 1
@@ -25,11 +26,9 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservation = @item.reservations.find(params[:id])
   end
 
   def destroy
-    @reservation = @item.reservations.find(params[:id])
     if @reservation.user_id == current_user.id && @reservation.destroy
       redirect_to item_reservations_path(@item), notice: "予約をキャンセルしました。"
     else
@@ -41,6 +40,16 @@ class ReservationsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:item_id])
+  end
+
+  def set_reservation
+    @reservation = @item.reservations.find(params[:id])
+  end
+
+  def authorize_reservation_participant!
+    return if @reservation.user_id == current_user.id || @item.user_id == current_user.id
+
+    redirect_to item_path(@item), alert: "この予約を表示する権限がありません。"
   end
 
   def reservation_params
