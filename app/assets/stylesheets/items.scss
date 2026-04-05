@@ -55,10 +55,10 @@
 }
 
 .index-left {
-    margin-left: 0 !important;
+    padding-left: 0 !important;
 
     @media (min-width: 768px) {
-        margin-left: 2.5rem !important;
+        padding-left: 2.5rem !important;
     }
 }
 
@@ -73,6 +73,12 @@
     padding: 12px;
     box-shadow: 0 10px 25px rgba(35, 86, 175, 0.08);
     overflow: hidden;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
 }
 
 .cover-item-index .caption {
