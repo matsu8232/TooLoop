@@ -1,7 +1,6 @@
 # TooLoop（ツーループ）
 
-<img src="https://github.com/user-attachments/assets/0e3af381-4966-4282-af9f-0317c75d37b0" width="250" height="250" alt="循環をイメージしたアプリのロゴ">
-
+<img src="https://github.com/user-attachments/assets/0e3af381-4966-4282-af9f-0317c75d37b0" width="200" height="200" alt="循環をイメージしたアプリのロゴ">
 
 # 概要
 このアプリは、組織内の備品のシェアをサポートするアプリケーションです。各課が持っている備品を登録することができ、アプリ上で必要な備品を検索して、詳細確認や貸出予約・交渉をすることができます。
@@ -35,11 +34,16 @@
 
 # 利用方法
 * ユーザー新規登録を行う、またはログインする
-<img src="https://github.com/user-attachments/assets/7f5ad2d0-8351-4d06-a5a6-24f01dad1376" width="250" height="500" alt="トップ例"><img src="https://github.com/user-attachments/assets/beb4c795-17b7-4dc6-82a6-81f06a82a47c" width="250" height="500" alt="ログイン例">
+<img width="40%" alt="スクリーンショット top" src="https://github.com/user-attachments/assets/c4c82793-01f8-4a90-b251-7c97c2444c1b">
+<img width="40%" alt="スクリーンショット login" src="https://github.com/user-attachments/assets/889ab124-65c4-4e53-8bbe-bc7024d9c7c7">
 
 * 貸出可能な備品があれば登録
+<img width="100%" alt="スクリーンショット registration" src="https://github.com/user-attachments/assets/f06c87ba-7057-4dd6-b878-08836eea44cc">
+
 * 備品一覧から借りたい備品を探す
+
 * 予約する
+
 * 調整が必要な場合はチャットで
 
 # 機能一覧
