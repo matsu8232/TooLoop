@@ -12,7 +12,7 @@ class ChatsController < ApplicationController
       Entry.create(user_id: @user.id, room_id: @room.id)
     end
     
-    @chats = @room.chat
+    @chats = @room.chats
     @chat = Chat.new(room_id: @room.id)
   end
 
