@@ -107,6 +107,24 @@
     color: #ffffff;
 }
 
+.cover-reservation-show .reservation-show-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+
+    .btn {
+        width: auto;
+        max-width: 100%;
+    }
+
+    form.reservation-show-button-to {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+    }
+}
+
 .cover-reservation-new .form-label {
     color: #1f3b73;
     font-weight: 800;

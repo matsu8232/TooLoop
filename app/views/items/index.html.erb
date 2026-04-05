@@ -3,27 +3,29 @@
         <div class="row mt-3">
             <h1>備品一覧</h1>
         </div>
-        <div class="row mt-3 mb-5 align-self-end">
-            <%= form_with url: items_path, method: :get, local: true do |f| %>
-                <div class="category-filter">
-                    <p class="form-label fw-bold small">カテゴリで絞り込み</p>
-                    <% @categories.each do |category| %>
-                        <label class="mr-2">
-                            <%= check_box_tag 'category_ids[]', category.id, params[:category_ids]&.map(&:to_i)&.include?(category.id) %>
-                            <%= category.name %>
-                        </label>
-                    <% end %>
-                    <%= f.submit '絞り込む', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
-                </div>
-                <div class="keyword-filter mt-2">
-                    <p class="form-label fw-bold small">キーワードで検索</p>
-                    <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力してください", size: 40 %>
-                    <%= f.submit '検索', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
-                    <% if @items.empty? %>
-                        <p class="text-danger">「<%= params[:keyword]%>」に一致するものはありませんでした。</p>
-                    <% end %>
-                </div>
-            <% end %>
+        <div class="row mt-3 mb-5 w-100 justify-content-center justify-content-md-end">
+            <div class="col-12 col-md-auto">
+                <%= form_with url: items_path, method: :get, local: true, html: { class: "item-index-search text-center text-md-start" } do |f| %>
+                    <div class="category-filter">
+                        <p class="form-label fw-bold small">カテゴリで絞り込み</p>
+                        <% @categories.each do |category| %>
+                            <label class="mr-2">
+                                <%= check_box_tag 'category_ids[]', category.id, params[:category_ids]&.map(&:to_i)&.include?(category.id) %>
+                                <%= category.name %>
+                            </label>
+                        <% end %>
+                        <%= f.submit '絞り込む', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
+                    </div>
+                    <div class="keyword-filter mt-2">
+                        <p class="form-label fw-bold small">キーワードで検索</p>
+                        <%= f.text_field :keyword, value: params[:keyword], placeholder: "キーワードを入力してください", size: 40 %>
+                        <%= f.submit '検索', name: nil, class: "btn btn-sm btn-primary rounded-pill mb-1" %>
+                        <% if @items.empty? %>
+                            <p class="text-danger">「<%= params[:keyword]%>」に一致するものはありませんでした。</p>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
         </div>
         <div class="row mb-3 index-left w-100">
             <% @items.each do |item| %>

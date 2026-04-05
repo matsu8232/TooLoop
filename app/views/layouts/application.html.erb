@@ -15,13 +15,19 @@
     <nav class="navbar navbar-expand-lg navbar-dark app-navbar sticky-top" aria-label="サイトメインメニュー" data-controller="navbar-toggle">
       <div class="container-fluid px-3">
         <%= link_to "TooLoop", root_path, class: "navbar-brand mb-0 fw-bold text-white" %>
-        <button class="navbar-toggler" type="button"
+        <button class="navbar-toggler app-navbar-toggler border-0 shadow-none"
+                type="button"
                 data-navbar-toggle-target="toggler"
                 data-action="click->navbar-toggle#toggle"
                 aria-controls="appNavbarMain"
                 aria-expanded="false"
                 aria-label="メニューを開く">
-          <span class="navbar-toggler-icon"></span>
+          <span class="app-navbar-toggler-bars" aria-hidden="true">
+            <span class="app-navbar-toggler-bar"></span>
+            <span class="app-navbar-toggler-bar"></span>
+            <span class="app-navbar-toggler-bar"></span>
+          </span>
+          <span class="app-navbar-toggler-label" data-navbar-toggle-target="label">メニュー</span>
         </button>
         <div id="appNavbarMain" class="collapse navbar-collapse" data-navbar-toggle-target="menu">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-lg-1">
