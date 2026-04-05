@@ -1,7 +1,9 @@
 <div class="cover-top">
     <div class="cover-inner">
         <%= image_tag 'logo.png', class:"logo" %><br>
-        <%= link_to "備品を探す", items_path, class: "btn btn-primary" %>
-        <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success" %>
+        <div class="cover-top-actions d-flex flex-wrap justify-content-center gap-2 mt-1">
+            <%= link_to "備品を探す", items_path, class: "btn btn-primary" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "btn btn-success" %>
+        </div>
     </div>
 </div>

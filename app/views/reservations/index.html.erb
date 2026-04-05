@@ -3,8 +3,8 @@
     <div class="row mt-3">
       <h1>予約カレンダー：<%= @item.name %></h1>
     </div>
-    <p class="mb-4">土日を除いて最大5日間、1ヶ月先まで予約できます。予約開始日を選択してください。</p>
-    <div class="row">
+    <p class="mb-4 px-1">土日を除いて最大5日間、1ヶ月先まで予約できます。予約開始日を選択してください。</p>
+    <div class="row w-100 justify-content-center">
       <div class="col-12">
         <%= month_calendar do |date| %>
           <%= date.day %>
@@ -23,30 +23,34 @@
           <% end %>
         <% end %>
       </div>
-      <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary" %>
+      <div class="col-12 mt-3">
+        <%= link_to "備品詳細に戻る", item_path(@item), class: "btn btn-outline-secondary" %>
+      </div>
     </div>
     <div class="history-group mt-3 mb-3">
       <% if @item.user == current_user %>
         <h3 class="font-weight-normal">予約受付状況</h3>
         <% if @reservations.any? %>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>開始日</th>
-                <th>終了日</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @reservations.each do |reservation| %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
                 <tr>
-                  <td><%= reservation.start_date %></td>
-                  <td><%= reservation.end_date %></td>
-                  <td><%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %></td>
+                  <th>開始日</th>
+                  <th>終了日</th>
+                  <th></th>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <% @reservations.each do |reservation| %>
+                  <tr>
+                    <td><%= reservation.start_date %></td>
+                    <td><%= reservation.end_date %></td>
+                    <td><%= link_to "詳細", item_reservation_path(@item, reservation), class: "btn btn-sm btn-outline-primary" %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
         <% else %>
           <p>現在、予約している人はいません。</p>
         <% end %>

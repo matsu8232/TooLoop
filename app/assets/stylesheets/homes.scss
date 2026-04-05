@@ -33,6 +33,14 @@
     padding: 56px 40px;
     box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
     backdrop-filter: blur(6px);
+
+    @media (max-width: 576px) {
+        padding: 28px 18px;
+    }
+}
+
+.cover-top-actions .btn {
+    min-width: 8.5rem;
 }
 
 .cover-top .btn-primary,
@@ -45,6 +53,11 @@
     color: #ffffff;
     border-radius: 12px;
     font-weight: 800;
+}
+
+.cover-top .cover-top-actions .btn-primary,
+.cover-top .cover-top-actions .btn-success {
+    margin: 0;
 }
 
 .cover-top .btn-primary:hover,

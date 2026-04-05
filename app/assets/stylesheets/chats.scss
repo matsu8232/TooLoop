@@ -11,10 +11,16 @@
     padding: 24px;
     box-shadow: 0 12px 35px rgba(35, 86, 175, 0.14);
     backdrop-filter: blur(6px);
+
+    @media (max-width: 576px) {
+        padding: 16px;
+        border-radius: 14px;
+    }
 }
 
 .message {
     height: 70vh;
+    max-height: 720px;
     overflow-y: auto;
     width: 100%;
     max-width: 900px;
@@ -26,6 +32,9 @@
 
     @media (max-width: 768px) {
         font-size: 13px;
+        height: 58vh;
+        max-height: 420px;
+        min-height: 220px;
     }
 }
 

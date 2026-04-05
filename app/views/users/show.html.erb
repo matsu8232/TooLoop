@@ -12,22 +12,22 @@
                 <%= link_to "プロフィール編集", edit_user_path(@user), class: "btn btn-success" %>
             </p>
         <% end %>
-        <div class="d-flex w-100">
+        <div class="d-flex flex-column flex-md-row w-100 align-items-start">
             <% if @user.avatar.attached? %>
-                <%= image_tag @user.avatar, size: '100x100', class: "mb-3 avatar" %>
+                <%= image_tag @user.avatar, size: '100x100', class: "mb-3 avatar flex-shrink-0" %>
             <% else %>
-                <%= image_tag "no_avatar.svg", size: '100x100', class: "mb-3 avatar" %>
+                <%= image_tag "no_avatar.svg", size: '100x100', class: "mb-3 avatar flex-shrink-0" %>
             <% end %>
-            <h4 class="ml-3 mb-3 card w-100 info"><%= @user.info %></h4>
+            <h4 class="mb-3 card w-100 info ms-0 ms-md-3"><%= @user.info %></h4>
         </div>
         <div class="row mt-5 index-left w-100">
             <% @items.each do |item| %>
-                <div class="one-post col-sm-3 mb-3">
+                <div class="one-post col-6 col-sm-3 mb-3">
                     <%= link_to item_path(item) do %>
                         <% if item.image.attached? %>
-                            <%= image_tag item.image.variant(resize_to_limit: [200, 133]) %>
+                            <%= image_tag item.image.variant(resize_to_limit: [200, 133]), class: "user-show-item-img" %>
                         <% else %>
-                            <%= image_tag 'no_image', size: "200x133" %>
+                            <%= image_tag 'no_image', size: "200x133", class: "user-show-item-img" %>
                         <% end %>
                         <p class="caption mb-0"><%= item.name %></p>
                     <% end %>
@@ -38,51 +38,55 @@
         <div class="history-group mt-5 mb-3">
             <% if user_signed_in? && @user == current_user %>
                 <h3 class="font-weight-normal">予約している備品</h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>備品名</th>
-                            <th>期間</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @future_reservations.each do |reservation| %>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
-                                <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
-                                <td><%= link_to '詳細', item_reservation_path(reservation.item, reservation), class: 'btn btn-sm btn-outline-primary' %></td>
+                                <th>備品名</th>
+                                <th>期間</th>
+                                <th></th>
                             </tr>
-                        <% end %>
-                        <% if @future_reservations.empty? %>
-                            <tr>
-                                <td colspan="3">現在、予約している備品はありません。</td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% @future_reservations.each do |reservation| %>
+                                <tr>
+                                    <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
+                                    <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
+                                    <td><%= link_to '詳細', item_reservation_path(reservation.item, reservation), class: 'btn btn-sm btn-outline-primary' %></td>
+                                </tr>
+                            <% end %>
+                            <% if @future_reservations.empty? %>
+                                <tr>
+                                    <td colspan="3">現在、予約している備品はありません。</td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
                 <h3 class="font-weight-normal mt-2">過去の予約</h3>
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>備品名</th>
-                            <th>期間</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% @past_reservations.each do |reservation| %>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
-                                <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
+                                <th>備品名</th>
+                                <th>期間</th>
                             </tr>
-                        <% end %>
-                        <% if @past_reservations.empty? %>
-                            <tr>
-                                <td colspan="2">過去の予約はありません。</td>
-                            </tr>
-                        <% end %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            <% @past_reservations.each do |reservation| %>
+                                <tr>
+                                    <td><%= link_to reservation.item.name, item_path(reservation.item) %></td>
+                                    <td><%= reservation.start_date %> 〜 <%= reservation.end_date %></td>
+                                </tr>
+                            <% end %>
+                            <% if @past_reservations.empty? %>
+                                <tr>
+                                    <td colspan="2">過去の予約はありません。</td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                </div>
             <% end %>
         </div>
     </div>
