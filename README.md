@@ -64,4 +64,4 @@
 * 言語：Ruby 3.2.9、HTML、CSS、JavaScript
 * フレームワーク：Ruby on Rails 7.1.6、Hotwire
 * ライブラリ：jQuery、Bootstrap
-* データベース：SQLite
+* データベース：PostgreSQL
