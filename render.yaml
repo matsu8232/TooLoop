@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: matsu_app
+    name: matsu_app_db
     env: ruby
     region: Oregon
     plan: free
