@@ -35,7 +35,7 @@
                         <% if item.image.attached? %>
                             <%= image_tag item.image.variant(resize_to_limit: [300, 200]) %>
                         <% else %>
-                            <%= image_tag 'no_image', size: "300x200" %>
+                            <%= image_tag 'no_image.jpg', size: "300x200" %>
                         <% end %>
                         <p class="caption"><%= item.name %></p>
                     <% end %>

@@ -11,7 +11,7 @@
                 <% if @item.image.attached? %>
                     <%= image_tag @item.image.variant(resize_to_limit: [450, 350]) %><br>
                 <% else %>
-                    <%= image_tag 'no_image', size: "450x350" %>
+                    <%= image_tag 'no_image.jpg', size: "450x350" %>
                 <% end %>
                 <p id="text">【備品の説明】</p>
                 <%= @item.description %>
