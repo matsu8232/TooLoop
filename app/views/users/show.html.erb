@@ -27,7 +27,7 @@
                         <% if item.image.attached? %>
                             <%= image_tag item.image.variant(resize_to_limit: [200, 133]), class: "user-show-item-img" %>
                         <% else %>
-                            <%= image_tag 'no_image', size: "200x133", class: "user-show-item-img" %>
+                            <%= image_tag 'no_image.jpg', size: "200x133", class: "user-show-item-img" %>
                         <% end %>
                         <p class="caption mb-0"><%= item.name %></p>
                     <% end %>
