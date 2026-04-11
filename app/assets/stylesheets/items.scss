@@ -85,6 +85,30 @@
     color: #1f3b73;
 }
 
+.cover-item-index .item-index-search {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.cover-item-index .keyword-filter-controls {
+    width: 100%;
+    box-sizing: border-box;
+
+    .form-control {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    @media (min-width: 768px) {
+        .form-control {
+            width: auto;
+            flex: 1 1 auto;
+            max-width: 28rem;
+        }
+    }
+}
+
 .cover-item-new .btn-success,
 .cover-item-edit .btn-success {
     background-color: #2f6fdb;
