@@ -63,5 +63,5 @@
 * OS: macOS
 * 言語：Ruby 3.2.9、HTML、CSS、JavaScript
 * フレームワーク：Ruby on Rails 7.1.6、Hotwire
-* ライブラリ：jQuery、Bootstrap
+* ライブラリ：Bootstrap
 * データベース：PostgreSQL
